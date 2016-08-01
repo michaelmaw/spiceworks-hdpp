@@ -1,0 +1,251 @@
+<div class="nav-tab-region">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a data-content-source="html" data-target="#hdpp-list" data-toggle="tab" href="javascript:void(0)">Ticket List</a>
+    </li>
+    <li>
+      <a data-content-source="html" data-target="#hdpp-form" data-toggle="tab" href="javascript:void(0)">Ticket Form</a>
+    </li>
+     <li>
+      <a data-content-source="html" data-target="#hdpp-required" data-toggle="tab" href="javascript:void(0)">Required Fields</a>
+    </li>
+    <li>
+      <a data-content-source="html" data-target="#hdpp-comments" data-toggle="tab" href="javascript:void(0)">Ticket Comments</a>
+    </li>
+    <li>
+      <a data-content-source="html" data-target="#hdpp-help" data-toggle="tab" href="javascript:void(0)">Help</a>
+    </li>
+  </ul>
+</div>
+<div class="tab-content-region">
+  <div class="tab-content">
+    <div class="tab-pane active" id="hdpp-list">
+      <table>
+        <tr>
+           <td>
+             <h3>Ticket Counts</h3>
+            <span class='hdpp-note'>Show totals on the ticket view dropdown menu</span>
+          </td>
+          <td>
+            <h3>Ticket List Height</h3>
+            <span class='hdpp-note'>Adjust default height of the ticket list</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="hdpp-counts" type="checkbox" value="true"  /> <span>Enable Ticket Counts</span>
+          </td>
+          <td>
+            <select id="hdpp-rows">
+              <option value="4">4 Tickets</option>
+              <option value="6">6 Tickets</option>
+              <option value="8">8 Tickets</option>
+              <option value="10">10 Tickets</option>
+              <option value="12">12 Tickets</option>
+              <option value="14">14 Tickets</option>
+              <option value="16">16 Tickets</option>
+              <option value="18">18 Tickets</option>
+              <option value="20">20 Tickets</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <hr />
+      <table>
+        <tr>
+          <td>
+            <h3>Ticket View Menu</h3>
+            <span class='hdpp-note'>Choose which options are displayed on the ticket view dropdown menu, and in what order</span>
+          </td>
+          <td>
+            <h3>Stats &amp; Rankings</h3>
+            <span class='hdpp-note'>Show a toolbar above the ticket list displaying a leaderboard and ticket stats/rankings</span>
+          </td>
+        </tr>
+        <tr>
+          <td><select id="hdpp-viewOpts"><option>Loading...</option></select> <button type="button" class="sui-bttn" hdpp-add="#hdpp-views" hdpp-sort="false">Add</button></td>
+          <td rowspan="3">
+            <input id="hdpp-stats-leader" type="checkbox" value="true"  /> <span>Show Leaderboard</span><br />
+            <input id="hdpp-stats-rank" type="checkbox" value="true"  /> <span>Show Ranking</span><br />
+            <input id="hdpp-stats-totals" type="checkbox" value="true"  /> <span>Show Tickets Closed (7 Days/30 Days)</span>
+            <span class='hdpp-note' style="margin-top: 9px; font-style:italic;">NOTE: This feature is restricted to admin users only. Use the <a href="https://community.spiceworks.com/appcenter/app/plugin_1747" target="_blank">Pepper Roles</a> plugin to bypass this restriction.</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select id="hdpp-views" multiple="multiple" size="4"></select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" class="sui-bttn"  hdpp-del="#hdpp-views">Remove</button>
+            <button type="button" class="sui-bttn"  hdpp-up="#hdpp-views">&#9650;</button>
+            <button type="button" class="sui-bttn"  hdpp-down="#hdpp-views">&#9660;</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="tab-pane" id="hdpp-form">
+      <table>
+        <tr>
+          <td>
+            <h3>Default Comment Form</h3>
+            <span class='hdpp-note'>Select which comment form is shown by default</span>
+          </td>
+          <td>
+            <h3>Delete Button</h3>
+            <span class='hdpp-note'>Control visibility of the ticket Delete button</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select id="hdpp-default">
+              <option value="Public Response">Public Response</option>
+              <option value="Internal Note">Internal Note</option>
+              <option value="Purchase">Purchase</option>
+            </select>
+          </td>
+          <td>
+            <select id="hdpp-deleteBtn">
+              <option value="Show on Open Tickets">Show on Open Tickets</option>
+              <option value="Hide on Open Tickets">Hide on Open Tickets</option>
+              <option value="Disable Completely">Disable Completely</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <hr />
+      <table>
+        <tr>
+          <td>
+            <h3>Time Spent Options</h3>
+            <span class='hdpp-note'>Define a custom list of time spent options to override the defaults shown on the quick entry toolbar</span>
+          </td>
+          <td id="hdpp-timeSpent">
+            <div><input type="text" default="15m" value="15m"  /></div>
+            <div><input type="text" default="30m" value="30m"   /></div>
+            <div><input type="text" default="45m" value="45m"   /></div>
+            <div><input type="text" default="1h" value="1h"   /></div>
+          </td>
+        </tr>
+      </table>
+      <hr />
+      <table>
+        <tr>
+          <td>
+            <h3>Quick Entry Fields</h3>
+            <span class='hdpp-note'>Choose which fields are displayed on the quick entry toolbar, and in what order (for faster data entry)</span>
+          </td>
+          <td>
+            <h3>Contact Cards</h3>
+            <span class='hdpp-note'>Choose what details are shown on contact cards under the ticket Details tab, and in what order</span>
+          </td>
+        </tr>
+        <tr>
+          <td><select id="hdpp-showFieldsOpts"><option>Loading...</option></select> <button type="button" class="sui-bttn" hdpp-add="#hdpp-showFields" hdpp-sort="false">Add</button></td>
+          <td><select id="hdpp-contactOpts"><option>Loading...</option></select> <button type="button" class="sui-bttn" hdpp-add="#hdpp-contactFields" hdpp-sort="false">Add</button></td>
+        </tr>
+        <tr>
+          <td><select id="hdpp-showFields" multiple="multiple" size="4"></select></td>
+          <td><select id="hdpp-contactFields" multiple="multiple" size="4"></select></td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" class="sui-bttn"  hdpp-del="#hdpp-showFields">Remove</button>
+            <button type="button" class="sui-bttn"  hdpp-up="#hdpp-showFields">&#9650;</button>
+            <button type="button" class="sui-bttn"  hdpp-down="#hdpp-showFields">&#9660;</button>
+          </td>
+          <td>
+            <button type="button" class="sui-bttn"  hdpp-del="#hdpp-contactFields">Remove</button>
+            <button type="button" class="sui-bttn"  hdpp-up="#hdpp-contactFields">&#9650;</button>
+            <button type="button" class="sui-bttn"  hdpp-down="#hdpp-contactFields">&#9660;</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="tab-pane" id="hdpp-required">
+       <table>
+        <tr>
+          <td>
+            <h3>Required Fields (New Tickets)</h3>
+            <span class='hdpp-note'>Fields required when creating a new ticket</span>
+          </td>
+          <td>
+            <h3>Required Fields (on Close)</h3>
+            <span class='hdpp-note'>Fields required when closing a ticket</span>
+          </td>
+        </tr>
+        <tr>
+          <td><select id="hdpp-reqNewOpts"><option>Loading...</option></select> <button type="button" class="sui-bttn" hdpp-add="#hdpp-reqNew">Add</button></td>
+          <td><select id="hdpp-reqCloseOpts"><option>Loading...</option></select> <button type="button" class="sui-bttn" hdpp-add="#hdpp-reqClose">Add</button></td>
+        </tr>
+        <tr>
+          <td><select id="hdpp-reqNew" multiple="multiple" size="4"></select></td>
+          <td><select id="hdpp-reqClose" multiple="multiple" size="4"></select></td>
+        </tr>
+        <tr>
+          <td><button type="button" class="sui-bttn"  hdpp-del="#hdpp-reqNew">Remove</button></td>
+          <td>
+            <div id="hdpp-reqValForm" style="display:none;">
+              <span class='hdpp-note' style="margin-bottom: 9px;">Use pipe "|" character if specifying more than one required value (ie. "Value1|Value2")</span>
+              <input id="hdpp-reqVal" type="text" /> <button type="button" class="sui-bttn hdpp-saveReqVal">Save</button>
+            </div>
+            <button type="button" class="sui-bttn"  hdpp-del="#hdpp-reqClose">Remove</button> <button type="button" class="sui-bttn hdpp-editReqVal">Edit Required Values</button>
+          </td>
+        </tr>
+        <tr>
+          <td />
+          <td>
+            <input id="hdpp-reqOpts" type="checkbox" value="true"  /> <span>Required on "Close as Duplicate" also</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="tab-pane" id="hdpp-comments">
+      <table>
+        <tr>
+          <td>
+            <h3>Tidy Comments</h3>
+            <span class='hdpp-note'>Hide single-line ticket comments containing these words or phrases (case-insensitive). Be careful with this!</span>
+          </td>
+          <td>
+            <h3>Tidy Images</h3>
+            <span class='hdpp-note'>Hide ticket comments if they contain an image smaller than the size specified below (in pixels)</span>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="text"  /> <button type="button" class="sui-bttn" hdpp-add="#hdpp-tidy">Add</button></td>
+          <td><label for="hdpp-tidyH">Max. Height:</label> <input id="hdpp-tidyH" type="text" size="3"  /></td>
+        </tr>
+        <tr>
+          <td><select id="hdpp-tidy" multiple="multiple" size="4"></select></td>
+          <td><label for="hdpp-tidyW">Max. Width:</label> <input id="hdpp-tidyW" type="text" size="3"  /></td>
+        </tr>
+        <tr>
+          <td><button type="button" class="sui-bttn"  hdpp-del="#hdpp-tidy">Remove</button></td>
+          <td />
+        </tr>
+        <tr>
+          <td>
+            <input id="hdpp-tidyMulti" type="checkbox" value="true"  /> <span>Tidy up multi-line comments also</span>
+          </td>
+          <td />
+        </tr>
+      </table>
+    </div>
+    <div class="tab-pane" id="hdpp-help">
+      <h3>Plugin Requirements</h3>
+      <ul>
+        <li>This plugin is only compatible with the <b>"v2"</b> version of the Help Desk - <a href="https://community.spiceworks.com/how_to/46922-switching-between-the-existing-and-new-spiceworks-help-desk" target="_blank">Learn how to switch</a></li>
+        <li>The <b>Contact Cards</b> and <b>Stats & Rankings</b> features require use of the <a href="https://community.spiceworks.com/appcenter/app/plugin_1747" target="_blank">Pepper Roles</a> plugin for non-admins</li>
+      </ul>
+      <hr />
+      <h3>Support Resources</h3>
+      <ul>
+        <li>Official Website: <a href="https://www.michaelmaw.com/apps/help-desk-powerpack/" target="_blank">https://www.michaelmaw.com/apps/help-desk-powerpack/</a></li>
+        <li>App Center Plugin: <a href="https://community.spiceworks.com/appcenter/app/plugin_457" target="_blank">https://community.spiceworks.com/appcenter/app/plugin_457</a></li>
+        <li>Contact Support: <a href="mailto:support@michaelmaw.com">support@michaelmaw.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>​

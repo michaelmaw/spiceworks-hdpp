@@ -1,0 +1,56 @@
+/*
+  HELP DESK POWERPACK - SPICEWORKS PLUGIN
+  @author Michael Maw (jMichael)
+  @website https://www.michaelmaw.com/apps/help-desk-powerpack
+  @version 3.5
+  @date 2016-08-01
+*/
+
+/* Settings Form */
+
+.hdpp div.setting { display: none !important; }
+.hdpp .plugin-configure { padding: 0 !important; }
+.hdpp .footer-actions { margin: 10px 15px; }
+#HDPP { padding: 0 !important; font-family: 'Open Sans',Arial,Helvetica; }
+#HDPP .nav-tab-region { padding: 0 !important; }
+#HDPP .nav-tabs { padding-top: 10px; background: none !important; }
+#HDPP .tab-content-region { padding: 15px; background-color: white; border-bottom: 1px solid #ddd; }
+#HDPP h3 { margin-bottom: 10px; }
+#HDPP .hdpp-note { color: #a3a3a3; display: block; margin-right: 10px; }
+#HDPP table { width: 100%; }
+#HDPP td { vertical-align:middle; padding-bottom: 9px; width: 50%; vertical-align: top; }
+#HDPP td label { margin-right: 6px; }
+#HDPP td input, #HDPP td select { margin: 0 6px 0 0 !important; }
+#HDPP #hdpp-timeSpent div { display: inline-block; padding: 10px 4px; margin: 8px 3px; border-radius: 3px; background-color: #f5f5f5; border: 1px solid #d3d3d3;  }
+#HDPP #hdpp-timeSpent input { border: none; width: 45px; margin: 0 !important; padding: 0 !important; background-color: #f5f5f5; text-align: center; box-shadow: none;  }
+#HDPP #hdpp-timeSpent div.active, #HDPP #hdpp-timeSpent div.active input { background: #0088c6; color: #ffffff; }
+#HDPP #hdpp-reqValForm { margin-bottom: 9px; }
+
+/* Stats & Rankings */
+
+#hdpp-stats { position: relative; background-color: gray; background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%); height: 24px; }
+#hdpp-stats div { float: right; display: block; margin: 2px 10px; }
+#hdpp-stats label { display: inline-block; color: white; font-weight: normal;  }
+#hdpp-stats span { display: inline-block; color: white; font-weight: bold; }
+#hdpp-leaders { position: absolute; top: 0; left: 0; z-index: 500; }
+#hdpp-leaders ul { list-style-type: none; display: block; background: white; color: #333; font-size: 12px; border: 1px solid #e7e7e7; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); }
+#hdpp-leaders li { padding: 4px 15px; }
+
+/* Quick Entry Toolbar */
+
+.sui-opt-in .helpdesk-app .ticket-pane .ticket-ribbon .span2{ margin:15px 9px 0; }
+.sui-opt-in .helpdesk-app .ticket-pane .ticket-ribbon .span2:first-child { margin:15px 9px 0;  }
+.hdppQEntry { margin-bottom: 15px; }
+.hdppQEntry dd { margin-left: 0; }
+.hdppQEntry .wrap { padding: 0; }
+.hdppQEntry .wrap p { font-size: 11px; }
+.hdppQEntry .editable-field-input { width: 100% !important; }
+
+/* Modal Popup */
+
+#hdpp-modal-overlay { position: fixed; left: 0; right: 0; bottom: 0; top: 0; background: #000; opacity: .30; width: 100%; z-index: 1000; margin: 0;}
+#hdpp-modal { font-family: 'Open Sans',Arial,sans-serif; font-size: 13px; display: block; width:350px; position: fixed; top: 150px; left: 50%; margin-left: -175px; border-radius: 5px; border: 8px solid #555; z-index: 1001; background: white; box-shadow: rgb(51, 51, 51) 0px 10px 30px 0px; }
+#hdpp-modal h1 { font-family: 'Open Sans',Arial,sans-serif; background-color: rgb(207, 49, 24); background-image: linear-gradient(to bottom,rgb(222, 103, 80), rgb(207, 49, 24)); color: #fff; font-size: 14px; font-weight: bold; line-height: 16px; margin: 0; padding:  10px; }
+#hdpp-modal div { padding: 10px; text-align: center; line-height: 18px; }
+#hdpp-modal-footer { background-color: #eee; }
+#hdpp-modal-btn { font-family: 'Open Sans',Arial,sans-serif; line-height: 18px; color: #fff; background-color: #222; border-radius: 3px; border: 1px solid #000; background-image: linear-gradient(to bottom,#888,#222); padding: 2px 10px; }​
