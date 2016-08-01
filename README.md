@@ -4,6 +4,8 @@ A free plugin for the Spiceworks Help Desk that enables a set of highly requeste
 
 Official Website: https://www.michaelmaw.com/apps/help-desk-powerpack/
 
+![Screenshot](https://www.michaelmaw.com/wp-content/uploads/2016/04/HDPP-Help-Desk-Stats-Rankings.png)
+
 ## Current Features (Version 3.4 – April 5, 2016)
 
 - Leaderboard: Display a list of the top 10 help desk techs (based on how many tickets they’ve closed in the last 7 days)
