@@ -1,10 +1,9 @@
 /**
 * HELP DESK POWERPACK - SPICEWORKS PLUGIN
-* Compatible with Spiceworks 7.5.00088+
+* Compatible with Spiceworks 7.5.00101+
 * @author Michael Maw (jMichael)
 * @website https://www.michaelmaw.com/apps/help-desk-powerpack
 * @version 3.5
-* @date 2016-08-01
 */
 
 /** CONFIGURATION PANEL SETTINGS */
@@ -307,7 +306,7 @@ plugin.includeStyles();
         
         // Combine standard fields with custom fields
         return flds.concat([ 
-          { label: "Assignee", name: "assignee", value: attr.assignee.first_name + ' ' + (attr.assignee.last_name || '') }, 
+          { label: "Assignee", name: "assignee", value: $.trim(attr.assignee.first_name + ' ' + (attr.assignee.last_name || '')) }, 
           { label: "Category", name: "category", value: attr.category }, 
           { label: "Time Spent", name: "time_spent_duration", value: attr.time_spent_duration }, 
           { label: "Due Date", name: "due_at", value: attr.due_at }, 
@@ -560,8 +559,8 @@ plugin.includeStyles();
               HDPP.dbg('Validating ' + rf + ' = "' + val + '" (Req. Values: ' + rvalues + ')');
               
               // Check for empty values
-              if (!val || val === '0m') { 
-                HDPP.ticket.err(rf); 
+              if (!val || $.inArray(val, ["0m", "unassigned", "unspecified", "null", "$null", "none"]) !== -1) { 
+                HDPP.ticket.err(rf);
               }
               
               // Check for user-specified required values
@@ -1073,4 +1072,4 @@ plugin.includeStyles();
 
 }(jQuery);
 
-SPICEWORKS.ready(function() { HDPP.init(); });​
+SPICEWORKS.ready(function() { HDPP.init(); });
