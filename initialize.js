@@ -319,6 +319,7 @@ plugin.includeStyles();
       // Help Desk Rankings & Stats
       stats: function() {
         var stats = [ (plugin.settings.statsLeader === "Yes"), (plugin.settings.statsRank === "Yes"), (plugin.settings.statsTotals === "Yes") ];
+               
         if (!stats[0] && ! stats[1] && !stats[2]) { return; }
         
         var userid = SPICEWORKS.app.user.id;
@@ -343,7 +344,7 @@ plugin.includeStyles();
           opts.Ranking = {
             'class': 'Ticket',
             'select': 'assigned_to, COUNT(*) AS total',
-            'conditions': 'closed_at >= datetime("now","-7 days") AND closed_at <= datetime("now") AND status="closed"',
+            'conditions': 'assigned_to IS NOT NULL AND closed_at >= datetime("now","-7 days") AND closed_at <= datetime("now") AND status="closed"',
             'group': 'assigned_to',
             'order': 'total DESC'
           };
