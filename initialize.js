@@ -344,7 +344,7 @@ plugin.includeStyles();
           opts.Ranking = {
             'class': 'Ticket',
             'select': 'assigned_to, COUNT(*) AS total',
-            'conditions': 'assigned_to IS NOT NULL AND closed_at >= datetime("now","-7 days") AND closed_at <= datetime("now") AND status="closed"',
+            'conditions': 'closed_at >= datetime("now","-7 days") AND closed_at <= datetime("now") AND status="closed"',
             'group': 'assigned_to',
             'order': 'total DESC'
           };
@@ -361,6 +361,11 @@ plugin.includeStyles();
               
               // Cycle through each help desk tech
               for (var r = 0; r < v.length; r++) {
+                
+                // Handle tickets with "No Assignee"
+                if (!v[r].assigned_to) {
+                  v[r].assignee = { id: 0, first_name: "No", last_name: "Assignee" };
+                }
                 
                 // Format ranking
                 var expr = ['st', 'nd', 'rd', 'th'];
