@@ -649,7 +649,7 @@ plugin.includeStyles();
           // Cycle through each field
           $.each(plugin.settings.showFields.split(','), function() {
             
-            // Add new row to Quick Entry toolbar
+            // Add new row to Quick Entry ribbon
             var row = $('.ticket-ribbon div.hdppQEntry:last');
             if (!row.length || (row.length && row.children().length === 6)) {
               row = $('<div class="hdppQEntry sui-row-fluid" />').appendTo('.ticket-ribbon > div');
@@ -660,24 +660,37 @@ plugin.includeStyles();
             // Ignore category fields if XML Subcategories plugin is active
             if ($.inArray(fld, ['Category', 'First Sub Cat', 'Second Sub Cat', 'Third Sub Cat', 'Fourth Sub Cat']) !== -1 && $('#cssmenu1 #breadcrumbs').length > 0) { return; }
           
-            // Labor Total field
-            if (fld === 'Labor Total') {
-              $('<div class="span2"><h4>Labor Total</h4><span id="hdpp-labor-total">' + $('.labor-total').text().replace('Total: ', '') + '</span></div>').appendTo(row);
-            } else if (fld === 'Creator') {
-              $('<div class="span2"><h4>Creator</h4><span id="hdpp-creator">' + $('.user-info.creator .front p.title').text() + '</span></div>').appendTo(row);
-            } else {
-              var f = $("#ticket_pane dl.custom dt:icontains('" + fld + "')");
-              if (f.length) {
-                // Custom fields
-                f.next("dd").show().appendTo($('<div class="span2"><h4>' + fld + '</h4></div>').appendTo(row));
-                f.remove();
-                n++;
-              } else {
-                // Standard fields
-                f = def.find('.span2 h4:icontains("' + fld + '")');
-                if (f.length) { f.next().show().parent().show().appendTo(row); }
-              }
+            // Add field to Quick Entry ribbon
+            switch(fld) {
+              case "Labor Total":
+                $('<div class="span2"><h4>Labor Total</h4><span id="hdpp-labor-total">' + $('.labor-total').text().replace('Total: ', '') + '</span></div>').appendTo(row);
+                break;
+              case "Creator":
+                $('<div class="span2"><h4>Creator</h4><span id="hdpp-creator">' + $('.cc-users .front p.title').text() + '</span></div>').appendTo(row);
+                break;
+              case "CC'd Users":
+                var ccUsers = [];
+                $.each($('.cc-users .card .front p.title'), function() {
+                  ccUsers.push($(this).text());
+                });
+                ccUsers = ccUsers.length > 0 ? ccUsers.join().replace(/\,/g, ", ") : "None";
+                $('<div class="span2"><h4>CC\'d Users</h4><span>' + ccUsers + '</span></div>').appendTo(row);
+                break;
+              default:
+                var f = $("#ticket_pane dl.custom dt:icontains('" + fld + "')");
+                if (f.length) {
+                  // Custom fields
+                  f.next("dd").show().appendTo($('<div class="span2"><h4>' + fld + '</h4></div>').appendTo(row));
+                  f.remove();
+                  n++;
+                } else {
+                  // Standard fields
+                  f = def.find('.span2 h4:icontains("' + fld + '")');
+                  if (f.length) { f.next().show().parent().show().appendTo(row); }
+                }
+                break;
             }
+
           });
         }
       },
@@ -926,7 +939,7 @@ plugin.includeStyles();
           var lists = [ '#hdpp-viewOpts', '#hdpp-showFieldsOpts', '#hdpp-contactOpts', '#hdpp-reqNewOpts', '#hdpp-reqCloseOpts' ];
           var std = [
             [ "Unassigned Tickets", "Open Tickets", "Closed Tickets", "Active Tickets", "Waiting Tickets", "Past Due Tickets", "Recently Updated", "My Tickets", "Vendor/Service Tickets", "Purchase Needed", "All Tickets", "Active Alerts", "Shared Tickets" ],
-            [ "Assignee", "Category", "Creator", "Due Date", "Labor Total", "Last Activity", "Priority", "Time Spent" ],
+            [ "Assignee", "Category", "CC'd Users", "Creator", "Due Date", "Labor Total", "Last Activity", "Priority", "Time Spent" ],
             [ "Title", "Location", "Department", "Email", "Home Page", "Office Phone", "Cell Phone", "Role", "Start Date" ],
             [ "Assigned To", "Attachment", "Category", "CC Users", "Contact", "Description", "Due Date", "Due Time", "Priority", "Related To", "Summary" ],
             [ "Assignee", "Category", "Due Date", "Priority", "Public Response", "Related Items", "Time Spent" ]
