@@ -1,7 +1,7 @@
 /*
   HELP DESK POWERPACK - SPICEWORKS PLUGIN
   @author Michael Maw (jMichael)
-  @website https://www.michaelmaw.com/apps/help-desk-powerpack
+  @website https://github.com/michaelmaw/spiceworks-hdpp
   @version 3.5
 */
 
@@ -37,9 +37,10 @@
 
 /* Quick Entry Toolbar */
 
-.sui-opt-in .helpdesk-app .ticket-pane .ticket-ribbon .span2{ margin:15px 9px 0; }
-.sui-opt-in .helpdesk-app .ticket-pane .ticket-ribbon .span2:first-child { margin:15px 9px 0;  }
-.hdppQEntry { margin-bottom: 15px; }
+.sui-opt-in .helpdesk-app .ticket-pane .ticket-ribbon > div { margin-bottom: 10px;  }
+.hdppQEntry { margin: 0; }
+.sui-opt-in .helpdesk-app .ticket-pane .ticket-ribbon .span2 { margin:15px 0 0 0; width: 16% !important; }
+.sui-opt-in .helpdesk-app .ticket-pane .ticket-ribbon .span2:first-child { margin-left: 10px; }
 .hdppQEntry dd { margin-left: 0; }
 .hdppQEntry .wrap { padding: 0; }
 .hdppQEntry .wrap p { font-size: 11px; }
