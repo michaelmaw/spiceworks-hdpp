@@ -303,10 +303,13 @@ plugin.includeStyles();
       fields: function() {
         var attr = Backbone.Relational.store.find($UI.app.HelpDesk.Common.Models.Ticket, SPICEWORKS.app.helpdesk.selectedTicket.get('id')).attributes;
         var flds = attr.custom_attrs || [];
+
+        // Handle tickets with no assignee
+        attr.assignee = attr.assignee || { first_name: "", last_name: "" };
         
         // Combine standard fields with custom fields
         return flds.concat([ 
-          { label: "Assignee", name: "assignee", value: $.trim(attr.assignee.first_name + ' ' + (attr.assignee.last_name || '')) }, 
+          { label: "Assignee", name: "assignee", value: $.trim((attr.assignee.first_name || '') + ' ' + (attr.assignee.last_name || '')) }, 
           { label: "Category", name: "category", value: attr.category }, 
           { label: "Time Spent", name: "time_spent_duration", value: attr.time_spent_duration }, 
           { label: "Due Date", name: "due_at", value: attr.due_at }, 
