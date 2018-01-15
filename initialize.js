@@ -2,7 +2,7 @@
 * HELP DESK POWERPACK - SPICEWORKS PLUGIN
 * Compatible with Spiceworks 7.5.00101+
 * @author Michael Maw (jMichael)
-* @website https://www.michaelmaw.com/apps/help-desk-powerpack
+* @website https://github.com/michaelmaw/spiceworks-hdpp
 * @version 3.5
 */
 
