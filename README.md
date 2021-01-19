@@ -2,10 +2,6 @@
 
 A free plugin for the Spiceworks Help Desk that enables a set of highly requested features: ticket counts, required fields, quick entry fields & contact details on tickets, plus more!
 
-Official Website: https://www.michaelmaw.com/apps/help-desk-powerpack/
-
-![Screenshot](https://www.michaelmaw.com/wp-content/uploads/2016/04/HDPP-Help-Desk-Stats-Rankings.png)
-
 ## Current Features (Version 3.5 – Jan 14, 2018)
 
 * Leaderboard: Display a list of the top 10 help desk techs (based on how many tickets they’ve closed in the last 7 days)
